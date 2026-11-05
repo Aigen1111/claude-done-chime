@@ -1,12 +1,73 @@
 {
   "name": "done-chime",
-  "version": "0.1.0",
-  "description": "Plays a short sound when Claude Code finishes a reply, needs your permission, or stops on an error. Windows, macOS and Linux.",
+  "version": "0.2.0",
+  "description": "Plays a sound when Claude Code finishes a reply, needs your permission, or stops on an error. Custom sounds in any common format, three built-in packs, volume and per-event switches. Windows, macOS and Linux.",
   "author": {
     "name": "NeedyFriends",
     "url": "https://needyfriends.pages.dev"
   },
-  "repository": "https://github.com/Aigen1111/done-chime",
+  "repository": "https://github.com/Aigen1111/claude-done-chime",
   "license": "MIT",
-  "keywords": ["sound", "notification", "hooks"]
+  "keywords": ["sound", "notification", "hooks", "chime"],
+  "userConfig": {
+    "sound_pack": {
+      "type": "string",
+      "title": "Sound pack",
+      "description": "Built-in sounds used when no custom file is set: chime (bell), soft (gentle sine) or arcade (8-bit)",
+      "default": "chime",
+      "options": ["chime", "soft", "arcade"]
+    },
+    "volume": {
+      "type": "number",
+      "title": "Volume",
+      "description": "0 to 100; 0 silences every sound",
+      "default": 80,
+      "min": 0,
+      "max": 100
+    },
+    "play_done": {
+      "type": "boolean",
+      "title": "Sound when Claude finishes",
+      "description": "Plays when Claude stops and hands control back to you",
+      "default": true
+    },
+    "play_attention": {
+      "type": "boolean",
+      "title": "Sound when Claude needs you",
+      "description": "Plays when Claude waits for your permission or a form",
+      "default": true
+    },
+    "play_error": {
+      "type": "boolean",
+      "title": "Sound on errors",
+      "description": "Plays when a reply stops on an API error",
+      "default": true
+    },
+    "min_seconds": {
+      "type": "number",
+      "title": "Minimum task length (seconds)",
+      "description": "Only play the finish sound when the turn took at least this long; 0 plays it every time",
+      "default": 0,
+      "min": 0,
+      "max": 3600
+    },
+    "done_sound": {
+      "type": "file",
+      "title": "Custom finish sound",
+      "description": "Audio or video file (wav, mp3, m4a, mp4, flac, ogg, opus...); empty uses the pack",
+      "default": ""
+    },
+    "attention_sound": {
+      "type": "file",
+      "title": "Custom attention sound",
+      "description": "Audio or video file (wav, mp3, m4a, mp4, flac, ogg, opus...); empty uses the pack",
+      "default": ""
+    },
+    "error_sound": {
+      "type": "file",
+      "title": "Custom error sound",
+      "description": "Audio or video file (wav, mp3, m4a, mp4, flac, ogg, opus...); empty uses the pack",
+      "default": ""
+    }
+  }
 }
