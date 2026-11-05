@@ -1,0 +1,12 @@
+{
+  "name": "done-chime",
+  "version": "0.1.0",
+  "description": "Plays a short sound when Claude Code finishes a reply, needs your permission, or stops on an error. Windows, macOS and Linux.",
+  "author": {
+    "name": "NeedyFriends",
+    "url": "https://needyfriends.pages.dev"
+  },
+  "repository": "https://github.com/Aigen1111/done-chime",
+  "license": "MIT",
+  "keywords": ["sound", "notification", "hooks"]
+}
