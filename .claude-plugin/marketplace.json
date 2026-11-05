@@ -1,13 +1,13 @@
 {
   "name": "done-chime",
-  "description": "Sound notifications for Claude Code.",
+  "description": "Claude Done-Chime: sound notifications for Claude Code.",
   "owner": {
     "name": "NeedyFriends"
   },
   "plugins": [
     {
       "name": "done-chime",
-      "description": "Plays a short sound when Claude Code finishes a reply, needs your permission, or stops on an error.",
+      "description": "Plays a sound when Claude Code finishes a reply, needs your permission, or stops on an error. Custom sounds, packs and volume.",
       "source": "./"
     }
   ]
