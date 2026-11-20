@@ -1,20 +1,20 @@
 # Claude Done-Chime
 
-A Claude Code plugin that plays a short sound so you can look away while Claude works:
+A plugin for Claude Code and Antigravity CLI (`agy`) that plays a short sound so you can look away while the agent works:
 
 | When | Sound |
 |---|---|
-| Claude finishes a reply (`Stop`) | finish: rising notes |
-| Claude is waiting for your permission or a form (`Notification`) | attention: two quick notes |
-| A reply stops on an API error (`StopFailure`) | error: falling notes |
+| Agent finishes a reply (`Stop`) | finish: rising notes |
+| Agent needs your input (Claude Code: `Notification`; Antigravity CLI: `ask_question`) | attention: two quick notes |
+| A reply stops on an error (Claude Code: `StopFailure`; Antigravity CLI: `Stop` with `ERROR`) | error: falling notes |
 
 Use your own sounds in almost any audio or video format, or pick one of three built-in packs. Works on Windows, macOS and Linux with no required dependencies.
 
-*Unofficial community plugin, not made or endorsed by Anthropic. Its plugin name is `done-chime`.*
+*Unofficial community plugin, not made or endorsed by Anthropic or Google. Its plugin name is `done-chime`.*
 
 ## Install
 
-In Claude Code:
+### Claude Code
 
 ```
 /plugin marketplace add Aigen1111/claude-done-chime
@@ -26,6 +26,28 @@ Then run `/reload-plugins` or restart Claude Code. To hear your current sounds a
 ```
 /done-chime:preview
 ```
+
+### Antigravity CLI (`agy`)
+
+Install directly from this repository or a local clone:
+
+```
+agy plugin install https://github.com/Aigen1111/claude-done-chime
+```
+
+Antigravity loads `.antigravity-plugin/plugin.json` and the root `hooks.json`. On Windows it runs `scripts/play-agy.ps1` directly (no Git Bash required); on macOS and Linux it delegates to `scripts/play-agy.sh` and `scripts/play.sh`.
+
+Configure options in Antigravity with environment variables (defaults match Claude Code):
+
+| Variable | Default | What it does |
+|---|---|---|
+| `DONE_CHIME_SOUND_PACK` | `chime` | `chime`, `soft`, or `arcade` |
+| `DONE_CHIME_VOLUME` | `80` | `0` to `100`; `0` silences everything |
+| `DONE_CHIME_PLAY_DONE` / `_ATTENTION` / `_ERROR` | `true` | Set to `false` to disable a sound |
+| `DONE_CHIME_DONE_SOUND` / `_ATTENTION_SOUND` / `_ERROR_SOUND` | empty | Path to a custom audio or video file |
+| `DONE_CHIME_MUTE` | empty | Set to `1` to mute a session |
+
+> Note: Antigravity CLI 1.5.x does not expose a `Notification` hook for tool-permission prompts yet, so the `attention` sound fires on `ask_question` tool calls. `Stop` checks `terminationReason` to distinguish normal finishes (`done`), `ERROR` (`error`), and `USER_CANCELED` (silent).
 
 ## Settings
 

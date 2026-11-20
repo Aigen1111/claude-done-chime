@@ -1,0 +1,24 @@
+{
+  "done-chime": {
+    "enabled": true,
+    "Stop": [
+      {
+        "type": "command",
+        "command": "\"./scripts/agy-hook.cmd\" stop",
+        "timeout": 10
+      }
+    ],
+    "PreToolUse": [
+      {
+        "matcher": "ask_question",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "\"./scripts/agy-hook.cmd\" attention",
+            "timeout": 10
+          }
+        ]
+      }
+    ]
+  }
+}
