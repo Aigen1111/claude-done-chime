@@ -1,6 +1,6 @@
 {
   "name": "done-chime",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Plays a sound when the agent finishes a reply, needs your attention, or stops on an error. Custom sounds in any common format, three built-in packs, volume and per-event switches. Windows, macOS and Linux.",
   "author": {
     "name": "NeedyFriends",

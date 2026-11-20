@@ -86,7 +86,7 @@ If a custom file doesn't exist, the pack sound plays instead.
 - The finish sound plays every time Claude hands control back to you, including when it asks you a question. Raise *Minimum task length* if that is too often.
 - Claude Code sends the attention notification only when you seem to be away: after about six seconds without typing.
 - Sounds also play in headless runs (`claude -p`). Use `DONE_CHIME_MUTE=1` in scripts.
-- On Windows the hooks need Git Bash (Git for Windows).
+- On Windows, Claude Code hooks need Git Bash (Git for Windows); Antigravity CLI uses PowerShell directly.
 - The built-in packs are synthesized by `tools/make-sounds.py` (Python standard library). Run `python tools/make-sounds.py` to rebuild them.
 
 ## License
